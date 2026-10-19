@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Eric Niehaus: working papers and books on living well and moral and political philosophy.">
+<style>body{margin:0}*,*::before,*::after{box-sizing:border-box}img{max-width:100%}</style>
+<title>Eric Niehaus</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap">
+<style>
+/* Layout: proceedings-style. Centered masthead, ruled nav, one 720px column of papers. Light only. */
+:root{
+  --bg:#FFFFFF; --fg:#111111; --muted:#4A4A4A; --rule:#111111; --hair:#DDDDDD; --link:#111111;
+  --serif:'Crimson Pro', Georgia, 'Times New Roman', serif;
+  color-scheme:light;
+}
+body{background:var(--bg);color:var(--fg);font-family:var(--serif);font-size:19px;line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:var(--link)}
+:focus-visible{outline:2px solid var(--fg);outline-offset:3px}
+[hidden]{display:none!important}
+.wrap{max-width:720px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+
+/* masthead */
+.mast{text-align:center;padding-block:44px 0}
+.mast .name{font-size:clamp(42px,8vw,54px);font-weight:700;color:var(--fg);text-decoration:none;line-height:1.05;letter-spacing:-.005em}
+.mast .sub{font-size:19px;margin-top:6px}
+.mast nav{margin-top:26px;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding-block:22px;display:flex;justify-content:center;gap:28px;flex-wrap:wrap}
+.mast nav a{font-size:14px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;text-decoration:none;color:var(--fg)}
+.mast nav a:hover,.mast nav a[aria-current="page"]{text-decoration:underline;text-underline-offset:5px}
+
+/* index */
+.label{font-size:13.5px;font-weight:600;letter-spacing:.09em;text-transform:uppercase}
+.entries{list-style:none;margin:0;padding:0}
+.entry{padding-block:30px 0}
+.entry .title{display:block;font-size:24px;font-weight:600;line-height:1.25;color:var(--fg);text-decoration:none;margin-top:4px}
+a.title:hover{text-decoration:underline;text-underline-offset:4px}
+.entry .title i{font-style:italic;font-weight:600}
+.entry .meta{font-size:17px;color:var(--muted);margin-top:4px}
+.group{font-size:26px;font-weight:600;margin:56px 0 0}
+.first{padding-top:34px}
+
+/* paper */
+.paper{padding-block:40px 64px}
+.paper .label{text-align:center}
+.paper h1{font-size:clamp(32px,6vw,40px);font-weight:700;line-height:1.15;text-align:center;margin:10px 0 6px;text-wrap:balance}
+.paper .subt{font-size:22px;font-style:italic;text-align:center}
+.paper .by{font-size:18px;text-align:center;margin-top:12px}
+.paper .note{font-size:15px;font-style:italic;line-height:1.4;color:var(--muted);margin:22px 0 0;text-align:left}
+.paper .abs-h{font-weight:700;font-size:20px;text-align:center;margin:34px 0 8px;padding-top:24px;border-top:1px solid var(--rule)}
+.paper .abstract{font-size:17.5px;margin:0 1.5em 30px}
+.paper .text{text-align:justify;hyphens:auto;-webkit-hyphens:auto}
+.paper h2{font-size:23px;font-weight:700;margin:34px 0 10px;text-align:left;hyphens:manual;scroll-margin-top:16px}
+.paper p{margin:0 0 13px}
+.paper .tcap{font-size:16px;text-align:left;margin:22px 0 6px}
+.paper .tnote{font-size:15px;line-height:1.4;margin:8px 0 20px}
+.tbl{overflow-x:auto}
+.paper table{border-collapse:collapse;width:100%;font-size:16px;line-height:1.3;text-align:left;hyphens:manual;border-top:2px solid var(--fg);border-bottom:2px solid var(--fg)}
+.paper th{font-weight:700;padding:5px 7px;border-bottom:1px solid var(--fg);vertical-align:bottom}
+.paper td{padding:4px 7px;vertical-align:top}
+.paper td.n{text-align:center;font-variant-numeric:tabular-nums}
+.paper table.t1 td:first-child{white-space:nowrap}
+.paper table.t1 th{text-align:center}
+.paper table.t1 th:first-child{text-align:left}
+.paper figure{margin:22px 0 24px}
+.paper figure img{display:block;width:100%;max-width:640px;margin:0 auto}
+.paper figcaption{font-size:15px;line-height:1.4;margin:8px 1em 0;text-align:left}
+.refs{list-style:none;padding:0;margin:0;font-size:16.5px;line-height:1.4;text-align:left}
+.refs li{padding-left:1.6em;text-indent:-1.6em;margin-bottom:6px}
+.back{display:inline-block;margin-top:28px;font-size:17px}
+
+/* about */
+.about{padding-block:40px 64px}
+.about p{margin:0 0 16px}
+
+footer{margin-top:56px;border-top:1px solid var(--hair);padding-block:20px 40px;font-size:15px;color:var(--muted);text-align:center}
+
+@media (max-width:600px){
+  .paper .text{text-align:left}
+  .paper .abstract{margin:0 0 26px}
+  .mast nav{gap:20px}
+}
+</style>
+</head>
+<body>
+
+
+<div class="wrap">
+  <header class="mast">
+    <a class="name" href="#papers">Eric Niehaus</a>
+    <div class="sub">Living Well | Moral &amp; Political Philosophy</div>
+    <nav aria-label="Main"><a href="#about">About</a><a href="#papers">Papers</a><a href="#books">Books</a></nav>
+  </header>
+
+  <main id="v-papers" class="view">
+    <ol class="entries first">
+      <li class="entry" style="padding-top:0">
+        <div class="label">Working Paper No. 1</div>
+        <a class="title" href="#eop">The End of Progress: Moral Paradigms and the Limits of Liberation</a>
+        <div class="meta">Eric Niehaus · October 2026 · Synopsis, Version One · <a href="The-End-of-Progress.pdf" target="_blank" rel="noopener">PDF</a></div>
+      </li>
+    </ol>
+
+    <h2 class="group" id="books-sec">Books</h2>
+    <ol class="entries">
+      <li class="entry">
+        <div class="label">Book · Version One</div>
+        <span class="title">The Structure of Moral Revolutions</span>
+        <div class="meta">Eric Niehaus · Kuhn's <i>Structure of Scientific Revolutions</i>, applied to morality · forthcoming</div>
+      </li>
+      <li class="entry">
+        <div class="label">Book · Version 1.0</div>
+        <span class="title">Living Well: <i>A Life Manual</i></span>
+        <div class="meta">Eric Niehaus · a guide to living well · forthcoming</div>
+      </li>
+    </ol>
+  </main>
+
+  <main id="v-eop" class="view" hidden>
+    <a class="back" href="#papers">← All papers</a>
+    <article class="paper">
+      <div class="label">Working Paper No. 1</div>
+      <h1>The End of Progress</h1>
+      <div class="subt">Moral Paradigms and the Limits of Liberation</div>
+      <div class="by">Eric Niehaus · Synopsis, Version One · October 2026 · <a href="The-End-of-Progress.pdf" target="_blank" rel="noopener">PDF</a></div>
+      <p class="note">Note: This synopsis was generated with the assistance of AI from original material created by the author, who has reviewed and edited it. The AI was trained on the author's writing. It condenses a larger body of work and is not the complete argument.</p>
+      <div class="abs-h">Abstract</div>
+      <p class="abstract">For two centuries the West has conceived of moral progress as the removal of unjust constraint. This synopsis argues that the paradigm built on that definition has run out of progress to make. Drawing on Kuhn's account of scientific paradigms, it treats moral orders as paradigms carried less by arguments than by exemplars and vocabularies. The reigning paradigm has one operation, subtraction, and subtraction always faces diminishing returns: each successive emancipation helps fewer people, helps them less, and costs everyone else more. A rough quantification of eight reforms, from abolition to the present, shows the ratio of benefit to cost halving roughly every 25 years and falling below break-even in the last decade. Having removed legitimate targets, and lacking a rule of when to stop, the paradigm now consumes the structures it was meant to serve — the serpent now eats its own tail. Its own institutions have begun to reverse it, and AGI will further reveal its inadequacy. The paper closes with the role of language in the contest between paradigms, and with the turn: the moment that the West stops tearing down and begins, again, to build.</p>
+      <div class="text"><h2 id="s1">1. The Serpent and Its Tail</h2>
+<p>The symbol of a dragon biting its own tail, the ouroboros, once meant eternity. Today, if often symbolizes chaos. By it, I mean something more specific. A creature whose only mode is consumption, once it has eaten everything around it, has nothing left to eat but itself, and the eating feels just as good to the head.</p>
+<p>That is, roughly, the state of the West's moral culture. For two hundred years we have understood moral progress as <i>liberation</i>, the removal of unjust and almost exclusively social constraints. It worked well: it freed the slaves, enfranchised women, and more. The feeling that animated it then is the same feeling that animates activists today — only we are out of slaves. The supply of arbitrary constraint has run low, yet an engine built to remove doesn't sit idle when its fuel is gone. It keeps removing. Instead of producing <i>good</i>, which is the justification of liberation, it now produces <i>harm</i>, and has lost legitimacy.</p>
+<p>My claim is not that progress was bad, nor that its champions are wicked, but that the paradigm is finished. It has accomplished its goal and is all out of legitimate work. We are like a cab driver who drives without a destination: content to drive, he doesn't know when he has passed his stop, and any passenger who tells him so is accused of attacking the "progress" of driving. A morality defined by removal has no way to know when it is finished. It is finished, and what follows shows why, shows that it is ending, and details what comes next. The full argument appears in a longer working paper (Niehaus 2026a).</p>
+
+<h2 id="s2">2. Morality Runs on Paradigms</h2>
+<p><b>Kuhn.</b> In 1962 the historian Thomas Kuhn argued that science does not advance by steady accumulation. It moves through <i>paradigms</i>: long, stable periods in which a community shares a framework that tells it what the world contains, which questions are worth asking, and what a good answer looks like. Inside a paradigm, scientists do "normal science," solving the puzzles the framework sets. Over time, anomalies (results that the paradigm cannot explain) pile up. Defenders patch them. Eventually the patches show, confidence fails, and a rival that solves the anomalies better takes over, less by refuting the old view than by winning the young while the old generation retires (Kuhn 1962).</p>
+<p><b>Exemplars.</b> The core of a paradigm, according to Kuhn, is not its theory but its <i>exemplars</i>: concrete solved problems that students learn by working and then use as templates for new cases. A physics student does not memorize laws and apply them; he learns to see a new problem <i>as</i> another pendulum (Kuhn 1970). Competence lives in the model case, not in the maxim.</p>
+<p><b>Moral paradigms.</b> Morality works the same way. We are trained less by memorizing principles and more by imitating people we see as good, inside a tradition that tells us what goodness looks like (MacIntyre 1981). A moral paradigm therefore has four working parts: an <i>exemplar</i> people recognize as good without argument; a <i>protocol</i>, the routine move the exemplar teaches; a <i>lexicon</i>, words that carry verdicts inside them; and <i>gatekeepers</i> who decide what counts. Schools and increasingly media teach the exemplars, institutions reward the protocol, and the vocabulary makes some thoughts easy to say and others nearly impossible. Kuhn called the scientific version normal science. The moral version is normal virtue.</p>
+<p><b>Legitimacy before morality.</b> A paradigm operates at two layers. The visible one is <i>morality</i>: the verdicts a culture renders, the arguments it wins and loses. Beneath it lies <i>legitimacy</i>: the silent sense of what is real, relevant, and worth counting at all. Power in a culture is decided at the lower layer. Considerations that the paradigm does not recognize do not lose the argument but instead never become acceptable arguments in the first place. Hence the decisive contest is never over who is right within the frame but rather what the frame counts. This is why paradigms are rarely refuted; they are replaced.</p>
+
+<h2 id="s3">3. The Paradigm of Progress</h2>
+<p><b>The exemplar.</b> The hero of the current paradigm is: the liberator. The abolitionist, the suffragette, the civil-rights marcher, the person who "comes out." Each is honored for a single act, exposing an arrangement as oppressive and removing it. The protocol is: <i>find the constraint; remove it.</i> The villain it casts is whoever defends a constraint, which tends to be, almost by definitions, conservatives. Its intellectual charter is what Ricoeur called the hermeneutics of suspicion, which reads every practice for the power it hides (Ricoeur 1970). Its spirit is <i>authenticity</i>, on which the self's task is to throw off whatever it did not choose (Taylor 1991). Its result is a culture not of binding commitments but their release (Rieff 1966).</p>
+<p><b>Subtraction.</b> Beneath these expressions lies the primary protocol: subtraction. The good is defined negatively, as freedom <i>from</i>, so the paradigm's highest achievement is always a subtraction. Structure is guilty until proven innocent. And because exemplars train <i>perception</i>, adherents do not hold a theory that structure is suspect — they <i>see</i> it as suspect, as immediately as one recognizes a face. Hence the paradigm feels beyond rational correct, and why its adherents experience disagreement not as an argument but as a moral failure.</p>
+<p><b>Borrowed capital.</b> A morality of pure subtraction must borrow the goods in whose name it subtracts. The current paradigm borrowed from Christianity: the equal worth of souls, special concern for the weak, etc. It kept the conclusions and discarded the premises (Siedentop 2014; Holland 2019). Thus, the paradigm can no longer say <i>why</i> persons are equal, only that disparity is suspect. So equal dignity, a moral claim, drifts into a demand for equal outcomes, an empirical one, and every difference reads as a wrong to be righted. Meanwhile the goods a society actually lives on (meaning, obligation, trust, family, continuity) are built goods, and no operation whose only move is removal can make them. Our current paradigm can remove but it cannot build, which is necessary for life. To survive, parasites on true, constructive morality.</p>
+
+<h2 id="s4">4. The Law of Diminishing Returns</h2>
+<p><b>A finite supply.</b> If the paradigm's good is the removal of unjust constraint, then its supply of worthwhile work is limited by the stock of constraints that are genuinely arbitrary, that track nothing real about the people they bind. That stock was plentiful in 1800, but success depletes it. Every removal shrinks what remains. As arbitrary constraints are removed, the next act of liberation targets constraints that are less arbitrary and more likely to be holding up something legitimate, and its return falls, even to less than zero.</p>
+<p><b>The calculus.</b> The return on any reform can be stated as a ratio. Its benefit is the number of people it helps, multiplied by how much it helps them. Its cost is the number of people who bear its burdens, multiplied by how heavily. Abolition helped millions enormously and cost a few hundred thousand slaveholders. Women's suffrage helped half the adult population substantially and cost men a diluted vote. And so on. But then the curve turned. The trans movement, for instance, helps a ~1% of the population — and arguably doesn't actually help them at all — while imposing significant costs on the entire population, compelling them to lie and undermine their reason and perception (to say nothing of the harm done to and in women's spaces or the children we've harmed by giving medical treatments whose evidence base the most thorough review to date called "remarkably weak" (Cass 2024). Further, mass illegal immigration helps many people a great deal, but its costs fall on an entire nation, in public funds, in wages at the bottom of the labor market, in housing, in the rule of law, and above all in a people's consent to the composition of its own polity (National Academies 2017; Putnam 2007).</p>
+
+<p class="tcap"><b>Table 1.</b> The diminishing returns of emancipation, eight cases.</p>
+<div class="tbl"><table class="t1">
+<thead><tr><th>Reform</th><th>Year</th><th>Reach<br>(% helped)</th><th>Depth<br>(0–10)</th><th>Burden<br>(% bearing cost)</th><th>Severity<br>(0–10)</th><th>Return</th></tr></thead>
+<tbody>
+<tr><td>Abolition of slavery</td><td class="n">1865</td><td class="n">12.6</td><td class="n">10</td><td class="n">1.3</td><td class="n">6</td><td class="n">16</td></tr>
+<tr><td>Women's suffrage</td><td class="n">1920</td><td class="n">31</td><td class="n">6</td><td class="n">31</td><td class="n">0.5</td><td class="n">12</td></tr>
+<tr><td>Civil Rights Acts</td><td class="n">1964</td><td class="n">10.6</td><td class="n">8</td><td class="n">17</td><td class="n">1</td><td class="n">5.0</td></tr>
+<tr><td>Equal employment for women</td><td class="n">1972</td><td class="n">51</td><td class="n">3</td><td class="n">49</td><td class="n">0.5</td><td class="n">6.2</td></tr>
+<tr><td>Same-sex marriage</td><td class="n">2015</td><td class="n">3.5</td><td class="n">4</td><td class="n">20</td><td class="n">0.3</td><td class="n">2.3</td></tr>
+<tr><td>Gender-identity policy</td><td class="n">2018</td><td class="n">1</td><td class="n">3</td><td class="n">50</td><td class="n">0.5</td><td class="n">0.12</td></tr>
+<tr><td>Decarceration and depolicing</td><td class="n">2020</td><td class="n">0.6</td><td class="n">4</td><td class="n">15</td><td class="n">1.5</td><td class="n">0.11</td></tr>
+<tr><td>Mass illegal immigration</td><td class="n">2022</td><td class="n">4.1</td><td class="n">6</td><td class="n">100</td><td class="n">0.4</td><td class="n">0.61</td></tr>
+</tbody>
+</table></div>
+<p class="tnote"><i>Notes.</i> Reach is the share of the U.S. population helped at the time of the reform; Burden is the share bearing its costs. Depth and Severity are scored 0–10. Return = (Reach × Depth) ÷ (Burden × Severity); above 1, a reform returns more than it costs. Populations from the 1860 census (3.95 million enslaved; 393,975 slaveholders), the Williams Institute (2025: ~1% of Americans 13+ identify as transgender), and Pew Research Center (2025: 14 million illegal immigrants in 2023). Depth and severity are the author's estimates and are offered to be argued with.</p>
+
+<figure>
+<img src="fig1.png" alt="Figure 1: the return ratio for each reform by year on a log scale, falling from about 16 for abolition to below 1 for the reforms of 2018 to 2022">
+<figcaption><b>Figure 1. Diminishing returns.</b> <i>The return ratio from Table 1 for each reform, on a log scale. The early reforms return ten to fifteen times their cost; the trend halves roughly every twenty-five years and crosses break-even around the turn of the century. Below the dashed line, each act of removal costs more than it returns.</i></figcaption>
+</figure>
+
+<p><b>What the numbers show.</b> The method is crude, and the depth and severity scores are judgments that reasonable people will set differently. But the argument needs only the direction, and the direction is clear. Fitted to the eight cases, the return halves roughly every twenty-five years (Figure 1). Double every benefit score after 1970 and the last three reforms still return between 0.2 and 1.2, an order of magnitude below abolition. The early reforms helped the many at the expense of the few. The modern ones help the few at the expense of the many. That is the shape of a paradigm running out of progress.</p>
+<p><b>No stopping rule.</b> A paradigm with a positive goal would stop near break-even. This one can't, because inside it idleness looks like complicity: any remaining structure is presumed to be a wall someone needs torn down. Having exhausted arbitrary targets, it "progresses" to reclassify legitimate structure as oppression and seeks to remove it: the distinction between the sexes, the border, etc. It cannot tell a prison wall from a wall that holds up the roof, because it trained people to detect constraints, not to discern what a constraint is for. C. S. Lewis envisaged this: "You cannot go on 'seeing through' things for ever. The whole point of seeing through something is to see something through it" (Lewis 1943). In autoimmune disease, the immune system continues to run the protocol that once saved the body, but having lost the distinction between self and invader, it begins to attack healthy tissue. It begins to destroy itself, i.e. eat its own tail. And, importantly, its agents are not malfunctioning or even evil necessarily — they are being faithful, just to bad orders.</p>
+<p><b>Detector drift.</b> The paradigm also recalibrates its own instruments. As real harm grows rare, the threshold for calling something harm drops. The psychologist Nick Haslam documented this "concept creep": abuse, trauma, bullying, and prejudice have stretched outward to new kinds of cases and downward to milder ones (Haslam 2016). When blue dots become rare, people begin calling purple dots blue (Levari et al. 2018). A smoke alarm that grows more sensitive as the house grows safer will eventually go off at toast. This is why the paradigm feels most extreme precisely when the world is most free.</p>
+
+<h2 id="s5">5. The Signs of Exhaustion</h2>
+<p>Kuhn says paradigms fall when anomalies accumulate faster than their defenders can patch them. They are accumulating now, and the most telling come from the paradigm's own strongholds.</p>
+<p><b>Its own institutions are reversing it.</b> In 2022 San Francisco, as progressive a city as exists, recalled three members of its school board and then its district attorney. In 2024 California voters passed Proposition 36 with about 68 percent of the vote, rolling back key parts of the decarceration measure they had approved a decade earlier. The same year Oregon recriminalized drug possession, ending its experiment with decriminalization after three years. Elite universities that had dropped testing requirements in the name of equity reinstated them, Dartmouth citing its own finding that test-optional admissions hurt the very disadvantaged applicants they were meant to help. In 2023 the Supreme Court ended race-conscious admissions (<i>SFFA v. Harvard</i>). England, Sweden, and Finland restricted pediatric gender medicine after systematic reviews, and in 2025 the Supreme Court upheld Tennessee's restrictions (<i>United States v. Skrmetti</i>). Major corporations dismantled the diversity programs they had built in 2020. These are not defeats inflicted by enemies. They are retreats ordered by believers who ran the experiment, read the results, and obeyed.</p>
+<p><b>Legitimacy is draining.</b> Average confidence in major American institutions stands at 27 percent, one point above its record low (Gallup 2026). In 2025 the share of Americans "extremely" or "very" proud to be American fell to 58 percent, the lowest Gallup has recorded (Gallup 2025). Legitimacy is the lower layer of a paradigm. When it goes, the verdicts above it follow.</p>
+<p><b>People no longer say what they believe.</b> In 2020, 62 percent of Americans told the Cato Institute that the political climate kept them from saying things they believe (Ekins 2020), and even this is likely understated. Timur Kuran called this <i>preference falsification</i>: public support for a creed that private belief has already abandoned (Kuran 1995). It is the signature of a paradigm held up by fear rather than conviction, and it explains why such paradigms look stable right up to the moment they collapse.</p>
+<p><b>Its words have inflated past meaning.</b> Analyses of tens of millions of news articles show terms denoting prejudice surging across the 2010s (Rozado et al. 2023). When "racist" and "fascist" describe a strict principal and a border wall alike, they stop distinguishing anything, and words that no longer distinguish no longer persuade. Like inflated currency, it has lost most of its value, retaining its force less by credible claims but by the ossified social enforcement, i.e. the trained responses to them.</p>
+
+<h2 id="s6">6. The Paradigm Under Leverage</h2>
+<p>Exhaustion is chronic, and AGI makes it acute: it multiplies the effect of whatever it is pointed at and drives the cost of action toward zero. Every deconstructionist property of the paradigm that was merely corrosive at human scale becomes civilizationally threatening at machine scale, and it fails in four ways. First, it has no objective, only a gradient. It can always name the next thing to remove but never what to build, and a powerful optimizer must be aimed at something — "less constraint" is not a target. Second, destruction scales and construction does not. Tearing down is cheap and building is slow and fragile, so a paradigm that celebrates removal is calibrated to exactly the wrong direction at exactly the wrong time. Third, governing powerful systems is a legitimacy problem (who may steer, and by what right), and a paradigm whose signature move is exposing every authority as arbitrary can strip legitimacy from any steward while conferring it on none. Fourth, safety depends on the very structures the paradigm is trained to suspect: durable institutions, binding commitments, trust, and coordination.</p>
+<p><b>Equality under leverage.</b> AGI also breaks the paradigm's central equation of equal dignity with equal outcomes. Leverage magnifies the real differences among people in skill, judgment, and will. When one engineer with machines can do what ten thousand once did, differences that once made little difference now make all the difference. A frame that reads every disparity as injustice will meet disparities it can neither deny nor abolish, and the only instrument able to flatten them is coercion that grows with the leverage itself, leading to absolute tyranny. Equality before the law and equality of outcome have always pulled in opposite directions (Hayek 1960); under high leverage the gap becomes a choice between giving up the conflation or freedom. And if machines make much human labor economically optional, a morality with no account of what human beings are <i>for</i> will have nothing to tell billions of people about why their lives matter or what to do with them.</p>
+<p><b>Scalable philosophical infrastructure.</b> We need is a philosophical infrastructure that scales. Our frontend (capitalism, science, technology, engineering) is growing exponentially. Our backend, the moral operating system that says what it's for is already failing and only worsen — frontend gains on a broken backend compound the problem. The only foundation large enough to scale with us is reality itself. A morality grounded in what is true can take error as input and correct itself, where the current paradigm can only resist until it snaps. But reality supplies the ground, not the direction. We must build a new vision, a positive account of the good we're reaching for, the world we want to build.</p>
+
+<h2 id="s7">7. Win the Words</h2>
+<p><b>Three layers.</b> Every worldview lives in three layers: the mental and moral (beliefs and values), the symbolic (words, slogans, narratives), and the material (policies, institutions, laws). Words are the middle layer, the vehicle the intangible rides on and the raw material the tangible is built from (Popper 1972; Searle 1995). Change the vocabulary and the framing, and beliefs often follow, and then policies.</p>
+<p><b>Words store the training.</b> Kuhn located a paradigm in its lexicon: a revolution, he argued, is a change in the categories that sort the world before any theory is applied (Kuhn 2000). If exemplars train perception, words store the training. A word carries a model case, a verdict, and an emotional charge, and it delivers all three every time it is spoken, without argument, as the word "racist" does today. The paradigm reproduces itself whenever its words are used, including by those who think they oppose it, i.e. the Right reinforces this paradigm and secures their defeat every time they engage the Left with their vernacular. In 2014, an inquiry into the English town of Rotherham found that some 1,400 children had been sexually exploited over sixteen years, and that some officials had been reluctant to name the ethnic origins of the perpetrators for fear of being thought racist (Jay 2014). No one disputed the facts. A word, "racist," decided which facts could be spoken, and the facts that could not be spoken could not be acted on. And when action is prohibited <i>a priori</i>, improvement becomes impossible, and decline necessarily follows.</p>
+<p><b>How the paradigm holds its words.</b> It holds them in five ways. By <i>capture</i>: to discriminate once meant to perceive a difference, and a culture that been trained to flinch at the word has been trained to flinch from the very act of seeing — to see is to sin. By <i>halo</i>: diversity and inclusion sound like variety and welcome, so the policy beneath them is never examined on its merits. By <i>pathology</i>: the suffix <i>-phobia</i> turns disagreement into a symptom, implying that the dissenter has causes rather than reasons. By <i>marking</i>: coining "cisgender" demotes the normal case to one variety among many, alienating and delegitimizing the priority of the norm. And by <i>absence</i>: there is no respectable word for healthy self-interest — there is only the negative "selfish" — so it cannot be defended in public without sounding like a vice, opening the door for your deprioritization and material dispossession.</p>
+<p><b>Why the Right loses the words.</b> The Right answers in its opponents' vocabulary ("that's not very tolerant of you") and so reinforces the premises it means to reject. The first rule of framing is that negating a frame activates it (Lakoff 2004). To deny a charge of racism is to concede that racism is the right question. Every rebellion staged in the paradigm's language digs the paradigm deeper. The Right needs new words, which requires a new concept of progress to replace the current one.</p>
+<p><b>Four moves.</b> <i>Refuse the question</i>: do not answer an accusation on its own terms; put it in a box, name the premise inside it, and set it to one side. <i>Substitute</i>: replace the paradigm's question with a better one, not "whom does this constrain?" but "what does this make possible, and what is lost if it goes?" <i>Recover</i> stolen words: <i>fair</i> once meant in accord with reality and proportion, not equalized; <i>pride</i> meant satisfaction in something achieved, not an identity one merely has; <i>progress</i> meant man's growing mastery of reality, which can be measured, not the endless rearrangement of his relations with other men. <i>Coin</i> the missing words, because a reality without a name cannot be conceived, shared, defended, or organized around. Words are flyers posted throughout a culture a million times over: everywhere, unnoticed, and decisive. Whoever owns them owns the premises they carry. A new paradigm must create a vocabulary first (Niehaus 2026b), because words can be written, tested, and distributed before anything else in it exists: "In the beginning was the word." (John 1:1)</p>
+
+<h2 id="s8">8. The Turn</h2>
+<p><b>The first turn.</b> When a man on the street stops and looks up, the people around him look up too. They need no argument; they follow his eyes. The first turn reorganizes the rest. Psychologists call this joint attention, and it is among the first capacities that make us human (Tomasello 2019). It is also a major value of philosophy. Philosophy does not chiefly win arguments but directs attention; it changes what people look at, and change follows attention.</p>
+<p><b>Morning.</b> For a long while the West has been asleep. The sun of its old confidence set, and it has been dark: a long night of suspicion in which every inherited good was doubted and every structure put on trial. Skepticism was the right mood while there were illegitimate structures to doubt. But all structures have now been doubted. No rock was left unturned. The only rocks remaining are the cornerstones. We have reached fresh grounding on which we can confidently build. Skepticism has born the fruit of conviction. Reality remains. Structure remains. Values and man are not infinitely malleable. You cannot manipulate the map and expect the territory to update. We have reached bottom. The night is over. The sun is rising.</p>
+<p><b>From deconstruction to construction.</b> The turn is the hinge: the move from tearing down to building up, from critique to affirmation, from irony to sincerity, from guilt and shame to innocence and pride, from zero-sum to positive-sum. To keep what we have, we must seek not to conserve but to create, which conserves as a byproduct, as a company that seeks only to maintain its market share is sure to lose it, whereas one that seeks to grow it is liable to at least retain it. The turn is not reaction, which merely reverses the paradigm's arrows and so stays inside it. One cannot beat a subtractive paradigm by out-subtracting it; it will always have one more thing to unmask. The way out is a construction it cannot account for and cannot dismantle without a visible loss.</p>
+<p><b>Turning well.</b> Paradigms end in one of two ways: slowly, by replacement and generational turnover, or suddenly, in a cascade, when private doubt becomes common knowledge (Kuran 1995). Cascades are very dangerous and can be civilizationally destabilizing. Therefore, the turn should appeal to the old paradigm's best motives rather than against them, build before it tears down, offer ways to defect while saving face, and retain its best precepts. The compassion that animated the old paradigm was real. The next step is to make it effective. Redirect the good energy into better methods, e.g. perform moral judo and make the subtle shift from removing arbitrary constraints via social means to removing legitimate constraints via technological means. Offer them <i>more</i>, not less. Let them avoid betraying themselves.</p>
+
+<h2 id="s9">9. After the Turn</h2>
+<p>The successor paradigm is a larger project than this synopsis, so I give only its outline (Table 2). It regrounds morality in reality, i.e. in what <i>works</i>, what produces <i>flourishing</i>. A structure is legitimate to the degree that it generates goods that could not otherwise exist, so the test of any arrangement is not whom it constrains but what is lost if it goes. Its exemplar is the founder, who builds a family, a company, an institution, a working order, and whose defining competence is exactly what the old paradigm lost: the discernment to tell distinguish between good and bad constraint. It measures progress by man's relation to reality, by what we can build, cure, and discover, rather than by the rearrangement of relations among men. And it is correctable, because a morality grounded in reality can take error as input. These ideas are developed in the treatise, <i>Sovereigns: The Ethics of Person &amp; Polis</i> (Niehaus, forthcoming).</p>
+
+<p class="tcap"><b>Table 2.</b> The two paradigms compared.</p>
+<div class="tbl"><table>
+<thead><tr><th></th><th>The current paradigm</th><th>The paradigm after the turn</th></tr></thead>
+<tbody>
+<tr><td><i>Core operation</i></td><td>Deconstruction</td><td>Construction</td></tr>
+<tr><td><i>Exemplar</i></td><td>The liberator</td><td>The builder</td></tr>
+<tr><td><i>Test of a structure</i></td><td>Whom does it constrain?</td><td>What is lost if it goes?</td></tr>
+<tr><td><i>Measure of progress</i></td><td>Relations among men, equalized</td><td>Man's relation to reality, advanced</td></tr>
+<tr><td><i>Key competence</i></td><td>Detecting hidden constraint</td><td>Discerning the load-bearing</td></tr>
+<tr><td><i>Failure mode</i></td><td>Removing its own supports</td><td>Building false goods</td></tr>
+</tbody>
+</table></div>
+
+<h2 id="s10">10. Objections</h2>
+<p>The strongest objection is that every age believes its own reforms are the last good ones, and that the defenders of slavery also called their wall load-bearing. The answer is the same criterion applied honestly: what a structure produces, and what its removal destroys, is a question of evidence, argued in public, and it can convict structures its author would prefer to keep. A second objection is that the scores in Table 1 are judgments, yet the trend would survive even significant revision. A third is that not every indicator points down. U.S. murder fell at record rates in 2023 and 2024, and in the best data undocumented immigrants are arrested for felonies less often than native-born citizens (Light et al. 2020). The case against mass illegal immigration rests on scale, cost, the rule of law, and consent, not on crime; and the crime decline arrived as cities reversed the experiments of 2020, which is the paradigm correcting itself, not vindicating itself. Finally, this is not a single-cause theory of a complicated age. It isolates one strand, the critical strand, and traces its logic. Where a material explanation is plainer, it should win.</p>
+
+<h2 id="s11">11. Conclusion</h2>
+<p>The culture of critique was for a long time the engine of real moral progress. But it ran on a finite fuel, the stock of arbitrary constraint, and a protocol built only to remove, with no rule that tells it when to stop, does not idle once its fuel is spent. It turns on the structures it was meant to serve. The liberal impulse to free the slave now polices the pronoun; the values that drive inclusion of other cultures are being undermined by those cultures; and all the while the serpent keeps eating. The sun of subtraction has set, and darkness swallowed the West. But the night is over. Dawn is coming.</p>
+
+
+      <h2 id="refs">References</h2>
+      <ul class="refs"><li>Cass, H. (2024). <i>Independent review of gender identity services for children and young people: Final report</i>. NHS England.</li>
+<li>Ekins, E. (2020). <i>Poll: 62% of Americans say they have political views they're afraid to share</i>. Cato Institute.</li>
+<li>Gallup. (2025). <i>American pride slips to new low</i>. Gallup News, June 30.</li>
+<li>Gallup. (2026). <i>Confidence in U.S. institutions remains near all-time low</i>. Gallup News.</li>
+<li>Haslam, N. (2016). Concept creep: Psychology's expanding concepts of harm and pathology. <i>Psychological Inquiry</i>, 27(1), 1–17.</li>
+<li>Hayek, F. A. (1960). <i>The constitution of liberty</i>. University of Chicago Press.</li>
+<li>Holland, T. (2019). <i>Dominion: The making of the Western mind</i>. Little, Brown.</li>
+<li>Jay, A. (2014). <i>Independent inquiry into child sexual exploitation in Rotherham, 1997–2013</i>. Rotherham Metropolitan Borough Council.</li>
+<li>Kuhn, T. S. (1962). <i>The structure of scientific revolutions</i>. University of Chicago Press.</li>
+<li>Kuhn, T. S. (1970). <i>The structure of scientific revolutions</i> (2nd ed., with postscript). University of Chicago Press.</li>
+<li>Kuhn, T. S. (2000). <i>The road since Structure</i>. University of Chicago Press.</li>
+<li>Kuran, T. (1995). <i>Private truths, public lies: The social consequences of preference falsification</i>. Harvard University Press.</li>
+<li>Lakoff, G. (2004). <i>Don't think of an elephant! Know your values and frame the debate</i>. Chelsea Green.</li>
+<li>Levari, D. E., Gilbert, D. T., Wilson, T. D., et al. (2018). Prevalence-induced concept change in human judgment. <i>Science</i>, 360(6396), 1465–1467.</li>
+<li>Lewis, C. S. (1943). <i>The abolition of man</i>. Oxford University Press.</li>
+<li>Light, M. T., He, J., &amp; Robey, J. P. (2020). Comparing crime rates between undocumented immigrants, legal immigrants, and native-born US citizens in Texas. <i>PNAS</i>, 117(51), 32340–32347.</li>
+<li>MacIntyre, A. (1981). <i>After virtue</i>. University of Notre Dame Press.</li>
+<li>National Academies of Sciences, Engineering, and Medicine. (2017). <i>The economic and fiscal consequences of immigration</i>. National Academies Press.</li>
+<li>Niehaus, E. (2026a). <i>The end of progress: Moral paradigms, the limits of critique, and what should come next</i>. Working paper, Version One.</li>
+<li>Niehaus, E. (2026b). <i>Win the words: The lexicon of the next paradigm</i>. Version One.</li>
+<li>Niehaus, E. (forthcoming). <i>Sovereigns: The ethics of person and polis</i>.</li>
+<li>Pew Research Center. (2025). <i>U.S. unauthorized immigrant population reached a record 14 million in 2023</i>. August 21.</li>
+<li>Popper, K. R. (1972). <i>Objective knowledge: An evolutionary approach</i>. Oxford University Press.</li>
+<li>Putnam, R. D. (2007). E pluribus unum: Diversity and community in the twenty-first century. <i>Scandinavian Political Studies</i>, 30(2), 137–174.</li>
+<li>Ricoeur, P. (1970). <i>Freud and philosophy: An essay on interpretation</i>. Yale University Press.</li>
+<li>Rieff, P. (1966). <i>The triumph of the therapeutic</i>. Harper &amp; Row.</li>
+<li>Rozado, D., Al-Gharbi, M., &amp; Halberstadt, J. (2023). Prevalence of prejudice-denoting words in news media discourse. <i>Social Science Computer Review</i>, 41(1), 99–122.</li>
+<li>Searle, J. R. (1995). <i>The construction of social reality</i>. Free Press.</li>
+<li>Siedentop, L. (2014). <i>Inventing the individual: The origins of Western liberalism</i>. Belknap Press.</li>
+<li><i>Students for Fair Admissions v. President and Fellows of Harvard College</i>, 600 U.S. 181 (2023).</li>
+<li>Taylor, C. (1991). <i>The ethics of authenticity</i>. Harvard University Press.</li>
+<li>Tomasello, M. (2019). <i>Becoming human: A theory of ontogeny</i>. Belknap Press.</li>
+<li><i>United States v. Skrmetti</i>, 605 U.S. ___ (2025).</li>
+<li>U.S. Census Bureau. (1864). <i>Population of the United States in 1860</i> (Eighth Census). Government Printing Office.</li>
+<li>Williams Institute. (2025). <i>How many adults and youth identify as transgender in the United States?</i> UCLA School of Law.</li></ul>
+      </div>
+    </article>
+  </main>
+
+  <main id="v-about" class="view" hidden>
+    <div class="about">
+      <p>Eric is a founder and writer. He is interested in moral and political philosophy and runs Ascent of the West, an initiative to improve the culture of the West. Eric lives in San Francisco, CA.</p>
+      <p>X: <a href="https://x.com/ericniehaus_" target="_blank" rel="noopener">@ericniehaus_</a></p>
+    </div>
+  </main>
+
+  <footer>© 2026 Eric Niehaus</footer>
+</div>
+
+<script>
+(function(){
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+function route(){
+  const h=(location.hash||'#papers').slice(1);
+  if(/^s\d+$|^refs$/.test(h)){
+    $$('.view').forEach(v=>v.hidden=v.id!=='v-eop');
+    requestAnimationFrame(()=>{const el=document.getElementById(h);if(el)el.scrollIntoView()});return}
+  const view=h==='about'?'about':h==='eop'?'eop':'papers';
+  $$('.view').forEach(v=>v.hidden=v.id!=='v-'+view);
+  const key=view==='about'?'about':h==='books'?'books':'papers';
+  $$('.mast nav a').forEach(a=>{if(a.getAttribute('href')==='#'+key)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});
+  if(h==='books')requestAnimationFrame(()=>document.getElementById('books-sec').scrollIntoView());
+  else window.scrollTo(0,0);
+}
+window.addEventListener('hashchange',route);
+route();
+})();
+</script>
+
+</body>
+</html>
